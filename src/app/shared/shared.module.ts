@@ -5,7 +5,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-
 @NgModule({
   declarations: [
     BreadcrumbsComponent,
@@ -13,14 +12,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     SidebarComponent
   ],
-  imports: [
-    CommonModule
-  ],
   exports: [ //para que se usen fuera de este modulo
   BreadcrumbsComponent,
   FooterComponent,
   HeaderComponent,
   SidebarComponent
-   ]
+   ],
+   imports: [
+    CommonModule
+  ],
 })
 export class SharedModule { }

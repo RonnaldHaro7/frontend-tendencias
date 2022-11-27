@@ -6,15 +6,16 @@ import { PagesComponent } from './pages.component';
 import { ProductComponent } from './product/product.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent, //sale error porque se los debe importar
+    DashboardComponent,
     ProductComponent,
     CatalogueComponent,
     PagesComponent,
   ],
-  exports: [ //para que se usen fuera de este modulo
+  exports: [
     DashboardComponent,
     ProductComponent,
     CatalogueComponent,
@@ -22,8 +23,9 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    //SharedModule,
-    AppRoutingModule,
+    SharedModule,
+    AuthModule,
+    AppRoutingModule
   ],
 })
 export class PagesModule { }

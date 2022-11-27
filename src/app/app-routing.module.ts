@@ -1,29 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { CatalogueComponent } from './pages/catalogue/catalogue.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { NopagesfoundComponent } from './pages/nopagesfound/nopagesfound.component';
-import { ProductComponent } from './pages/product/product.component';
-import { PagesComponent } from './pages/pages.component';
-import { SharedModule } from './shared/shared.module';
+import { PagesRoutingModule } from './pages/pages-routing.module';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+
+import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 
 const routes: Routes = [
-  //Rutas Protegidas
-  {
-    path:'',
-    component: PagesComponent,
-    children: [ //subir las rutas anterior en children
-{ path: 'dashboard', component: DashboardComponent },
-{ path: 'product', component: ProductComponent },
-{ path: 'catalogue', component: CatalogueComponent },
-{path:'', redirectTo:'/dashboard', pathMatch:'full'},
-]
-  },
-
-{path:'login', component: LoginComponent},
-{path:'register', component: RegisterComponent},
 //{path:'', redirectTo:'/dashboard', pathMatch:'full'},//si
 {path:'**', component: NopagesfoundComponent},//cualquier
 ];
@@ -31,8 +13,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    //SharedModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
+PagesRoutingModule,
+AuthRoutingModule,
   ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

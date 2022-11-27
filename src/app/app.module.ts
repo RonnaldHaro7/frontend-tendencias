@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { NopagesfoundComponent } from './pages/nopagesfound/nopagesfound.component';
+import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HeaderComponent } from './shared/header/header.component';

@@ -17,9 +17,6 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    PagesRoutingModule,
-    SharedModule,
-    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

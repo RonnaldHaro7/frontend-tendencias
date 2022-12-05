@@ -38,10 +38,11 @@ export class ProductComponent implements OnInit {
       title:"Taller numero 4",
       price:4,
       description:"realizado por Ronnald Haro",
-      categoryId:208,
+      images:[],
+      categoryId: 1,
     }
     const url = "http://api.escuelajs.co/api/v1/products";
-    this.httpClient.get(url).subscribe(
+    this.httpClient.post(url, data).subscribe(
     response => {
       console.log(response);    }
   ); }
@@ -51,10 +52,8 @@ export class ProductComponent implements OnInit {
       title:"cuadernos",
       price:3,
       description:"utiles Ronnald Haro",
-      categoryId:5,
-
     }
-    const url = "http://api.escuelajs.co/api/v1/products";
+    const url = "http://api.escuelajs.co/api/v1/products/5";
     this.httpClient.put(url, data).subscribe(
     response => {
       console.log(response);    }

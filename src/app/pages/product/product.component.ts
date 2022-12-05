@@ -51,7 +51,7 @@ export class ProductComponent implements OnInit {
       title:"cuadernos",
       price:3,
       description:"utiles Ronnald Haro",
-      categoryId:1,
+      categoryId:5,
 
     }
     const url = "http://api.escuelajs.co/api/v1/products";

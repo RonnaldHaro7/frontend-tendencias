@@ -12,7 +12,11 @@ export class ProductComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getProducts();
+    //this.getProducts();
+    //this.getProduct();
+    this.createProduct();
+    //this.updateProduct();
+    //this.deleteProduct();
   }
 
   getProducts() {
@@ -23,7 +27,21 @@ export class ProductComponent implements OnInit {
   ); }
 
   getProduct() {
-    this.httpClient.get("http://api.escuelajs.co/api/v1/products/1").subscribe(
+    const url = "http://api.escuelajs.co/api/v1/products/5";
+    this.httpClient.get(url).subscribe(
+    response => {
+      console.log(response);    }
+  ); }
+
+  createProduct() {
+    const data=  {
+      title:"Taller numero 4",
+      price:4,
+      description:"realizado por Ronnald Haro",
+      categoryId:208,
+    }
+    const url = "http://api.escuelajs.co/api/v1/products";
+    this.httpClient.get(url).subscribe(
     response => {
       console.log(response);    }
   ); }
@@ -42,22 +60,9 @@ export class ProductComponent implements OnInit {
       console.log(response);    }
   ); }
 
-  createProduct() {
-    const data=  {
-      title:"cuadernos",
-      price:3,
-      description:"utiles Ronnald Haro",
-      categoryId:1,
 
-    }
-    const url = "http://api.escuelajs.co/api/v1/products";
-    this.httpClient.put(url, data).subscribe(
-    response => {
-      console.log(response);    }
-  ); }
-  
   deleteProduct() {
-    this.httpClient.delete("http://api.escuelajs.co/api/v1/products/1").subscribe(
+    this.httpClient.delete("http://api.escuelajs.co/api/v1/products/5").subscribe(
     response => {
       console.log(response);    }
   ); }

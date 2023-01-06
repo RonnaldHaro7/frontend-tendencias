@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ProductHttpService } from 'src/app/services/product-http-services';
 
 @Component({
   selector: 'app-product',
@@ -8,27 +8,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private product:ProductHttpService) {
    }
 
   ngOnInit(): void {
     //this.getProducts();
     //this.getProduct();
-    this.createProduct();
+    //this.createProduct();
     //this.updateProduct();
     //this.deleteProduct();
   }
 
   getProducts() {
-    const url = "http://api.escuelajs.co/api/v1/products";
-    this.httpClient.get(url).subscribe(
+    this.product.getAll().subscribe(
     response => {
       console.log(response);    }
   ); }
 
   getProduct() {
-    const url = "http://api.escuelajs.co/api/v1/products/5";
-    this.httpClient.get(url).subscribe(
+    this.product.getOne(1).subscribe(
     response => {
       console.log(response);    }
   ); }
@@ -41,8 +39,7 @@ export class ProductComponent implements OnInit {
       images:[],
       categoryId: 1,
     }
-    const url = "http://api.escuelajs.co/api/v1/products";
-    this.httpClient.post(url, data).subscribe(
+    this.product.store().subscribe(
     response => {
       console.log(response);    }
   ); }
@@ -53,15 +50,14 @@ export class ProductComponent implements OnInit {
       price:3,
       description:"utiles Ronnald Haro",
     }
-    const url = "http://api.escuelajs.co/api/v1/products/5";
-    this.httpClient.put(url, data).subscribe(
+    this.product.update(9).subscribe(
     response => {
       console.log(response);    }
   ); }
 
 
   deleteProduct() {
-    this.httpClient.delete("http://api.escuelajs.co/api/v1/products/5").subscribe(
+    this.product.destroy(1).subscribe(
     response => {
       console.log(response);    }
   ); }

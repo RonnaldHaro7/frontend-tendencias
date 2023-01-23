@@ -1,1 +1,71 @@
-<p>Ronnald Haro</p>
+<div class="card">
+    <div class="card-header">
+        PRODUCTO
+    </div>
+    <div>
+      <div class="justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <label appLabel for="title" label="Producto:">Producto:</label>
+        <input pInputText type="title" id="title" [value]="selectedProduct.title" class="form-control"/>
+      </div>
+      <div class="justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <label appLabel for="price" label="Producto:">Precio:</label>
+        <input pInputText type="price" id="price" [value]="selectedProduct.price" class="form-control"/>
+      </div>
+      <div class="justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <label appLabel for="category" label="Categoría:">Categoría:</label>
+        <input pInputText type="category" id="category" [value]="selectedProduct.category" class="form-control"/>
+      </div>
+      <div class="justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <label appLabel for="images" label="Imagen:">Imagen:</label>
+        <img class="justify-content-md-center"
+        src="{{selectedProduct.images}}" alt="" width="175px" height="225px">
+      </div>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción:</label>
+          <textarea name="" id="description" cols="40"  rows="4">{{selectedProduct.description}}</textarea>
+        </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" *ngFor="let product of products"
+      (click)="updateProduct(product.id)">Actualizar</button>
+
+  </div>
+    <div class="card-footer text-muted">
+        Footer-Ronnald-Haro
+    </div>
+</div>
+<hr>
+<div
+class="justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+<h5 class="pt-1">Productos Almacenados</h5>
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Eliminar</th>
+                <th scope="col">Actualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let product of products">
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td><img src="{{product.images}}" alt="" width="150px" height="200px">
+                <td><button class="btn btn-primary" (click)="deleteProduct(product.id)" >Eliminar</button></td>
+                <td><button class="btn btn-primary" (click)="editProduct(product)" >Editar</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

@@ -7,6 +7,9 @@ import { CreateProductDto, ProductModel, UpdateProductDto } from '../entities/pr
   providedIn: 'root'
 })
 export class ProductHttpService {
+  remove(id: number) {
+    throw new Error('Method not implemented.');
+  }
   readonly API_URL = 'https://api.escuelajs.co/api/v1/products';
 
   constructor(private httpClient: HttpClient) {

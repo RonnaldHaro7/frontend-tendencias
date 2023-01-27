@@ -1,6 +1,8 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProductModel, UpdateProductDto } from 'src/app/entities/product.model';
 import { ProductHttpService } from 'src/app/services/product-http.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -75,4 +77,24 @@ export class ProductComponent implements OnInit {
       });
     }
 
+    showModal() {
+      Swal.fire({
+        title: 'Quieres eliminar el producto?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `No Eliminar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.deleteProduct(product.id),
+          Swal.fire('Eliminado!',  'success')
+        } else if (result.isDenied) {
+          Swal.fire('No se elimino ningún prodcuto', '', 'info')
+        }
+      })
+    }
+
   }
+
+
